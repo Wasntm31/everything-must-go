@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Everything Must Go</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-gray-800 font-sans scroll-smooth">
+
+  <!-- Header -->
+  <header class="bg-blue-600 text-white p-4 flex justify-between items-center sticky top-0 z-50">
+    <h1 class="text-xl font-bold">Everything Must Go</h1>
+    <div class="flex items-center gap-4">
+      <button id="menu-btn" class="md:hidden text-2xl focus:outline-none">☰</button>
+    </div>
+    <nav class="hidden md:flex space-x-4">
+        <button id="cart-btn" class="relative ml-2" aria-label="View cart" tabindex="0" role="button">
+          🛒 <span id="cart-count" class="absolute top-0 right-0 text-xs bg-red-500 text-white rounded-full px-1">0</span>
+        </button>
+        <a href="#home" class="hover:underline">Home</a>
+        <a href="#shop" class="hover:underline">Shop</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#reviews" class="hover:underline">Reviews</a>
+        <a href="#contact" class="hover:underline">Contact Us</a>
+      </nav>
+  </header>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden bg-blue-700 text-white p-4 md:hidden flex flex-col sm:flex-row sm:items-start" style="position:relative;align-items:flex-start;">
+    <div class="flex flex-col gap-2 flex-1 w-full">
+      <button id="close-mobile-menu" aria-label="Close menu" style="align-self:flex-start;background:none;border:none;color:#fff;font-size:2rem;z-index:101;cursor:pointer;line-height:1;margin-bottom:0.5rem;padding-left:0.5rem;">&times;</button>
+      <a href="#home" class="block py-2" style="text-align:left;padding-left:0.5rem;">Home</a>
+      <a href="#shop" class="block py-2" style="text-align:left;padding-left:0.5rem;">Shop</a>
+      <a href="#about" class="block py-2" style="text-align:left;padding-left:0.5rem;">About</a>
+      <a href="#reviews" class="block py-2" style="text-align:left;padding-left:0.5rem;">Reviews</a>
+      <a href="#contact" class="block py-2" style="text-align:left;padding-left:0.5rem;">Contact Us</a>
+    </div>
+    <div class="flex justify-center mt-4">
+      <button id="cart-btn-mobile" class="relative bg-white text-blue-700 rounded-full px-4 py-2 shadow hover:bg-gray-100">
+        🛒 <span id="cart-count-mobile" class="absolute top-0 right-0 text-xs bg-red-500 text-white rounded-full px-1">0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Home Section -->
+  <section id="home" class="bg-blue-500 text-white text-center py-20 relative">
+    <h2 class="text-4xl font-bold mb-4">Everything Must Go</h2>
+    <p class="text-lg mb-2">Affordable Home Essentials at Clearance Prices</p>
+    <p class="mb-6">Limited stock. Huge savings. Shop now.</p>
+    <div class="absolute bottom-0 w-full overflow-hidden leading-[0]">
+      <svg viewBox="0 0 500 40" preserveAspectRatio="none" class="w-full h-10">
+        <path d="M0,20 C150,40 350,0 500,20 L500,40 L0,40 Z" style="stroke: none; fill: white;"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop" class="bg-white py-12 px-2 sm:px-6">
+    <h3 class="text-3xl font-bold mb-6 text-center">Shop Our Products</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 justify-center items-center mx-auto max-w-4xl" id="product-list">
+      <!-- JS will insert product cards here -->
+    </div>
+  </section>
+  <!-- Floating Checkout Button -->
+  <button id="checkout-btn" class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 bg-blue-600 text-white px-5 py-2 sm:px-6 sm:py-3 rounded-full shadow-lg hover:bg-blue-700 z-50 text-base sm:text-lg">Checkout</button>
+
+  <!-- About Section -->
+  <section id="about" class="bg-blue-50 py-12 px-6">
+    <h3 class="text-3xl font-bold mb-4 text-center">About Us</h3>
+    <div class="max-w-3xl mx-auto text-center">
+      <img src="images/hiveboxx-YDrMM_1rosM-unsplash.jpg" alt="About Everything Must Go" class="w-full max-w-lg max-h-96 object-contain object-center mb-6 rounded mx-auto border-2 border-gray-300 bg-white" />
+      <p>We’re a clearance-focused home goods outlet helping people furnish their homes on a budget. When we say everything must go, we mean it. Our inventory changes fast and sells even faster. Don't miss out on big savings!</p>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="bg-white py-12 px-6">
+    <h3 class="text-3xl font-bold mb-6 text-center">Customer Reviews</h3>
+    <div class="max-w-3xl mx-auto space-y-6">
+      <div class="bg-blue-100 p-4 rounded shadow">
+        <p class="font-bold">⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"Amazing deals! Got everything I needed for my apartment and still had money left over."</p>
+      </div>
+      <div class="bg-blue-100 p-4 rounded shadow">
+        <p class="font-bold">⭐️⭐️⭐️⭐️</p>
+        <p>"Good quality for clearance stock. Would recommend."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-blue-50 py-12 px-6">
+    <h3 class="text-3xl font-bold mb-6 text-center">Contact Us</h3>
+    <form class="max-w-xl mx-auto space-y-4" id="contact-form">
+      <input id="contact-name" name="name" type="text" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded" autocomplete="name" />
+      <input id="contact-email" name="email" type="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded" autocomplete="email" />
+      <textarea id="contact-message" name="message" placeholder="Your Message" class="w-full p-3 border border-gray-300 rounded h-32"></textarea>
+      <div class="flex justify-center">
+        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700">Send Message</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-6 bg-blue-600 text-white mt-12">
+    © 2025 Everything Must Go. All rights reserved.
+  </footer>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
+      <div class="flex items-center justify-between mb-4">
+        <button id="close-cart" class="text-gray-500 hover:text-gray-800 text-2xl mr-2">&times;</button>
+        <h3 class="text-2xl font-bold ml-2">Your Cart</h3>
+      </div>
+      <div id="cart-items" class="mb-4 text-gray-800">
+        <!-- JS will insert cart items here -->
+      </div>
+      <button id="cart-checkout-btn" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 w-full flex justify-center items-center mt-2" style="display:block;margin-left:auto;margin-right:auto;max-width:220px;">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="hidden fixed left-1/2 -translate-x-1/2 bottom-8 bg-gray-700 text-white px-4 py-2 rounded-full shadow-lg hover:bg-gray-900 z-50 text-sm sm:text-base transition-opacity duration-300">Back to Top</button>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile Menu
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      // Helper functions for menu open/close
+      function openMobileMenu() {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('show', 'open');
+        // Focus first link for accessibility
+        const firstLink = mobileMenu.querySelector('a');
+        if (firstLink) firstLink.focus();
+      }
+      function closeMobileMenu() {
+        mobileMenu.classList.remove('show', 'open');
+        mobileMenu.classList.add('hidden');
+      }
+      // Only assign handler once
+      menuBtn.onclick = function(e) {
+        e.stopPropagation();
+        if (mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.add('show', 'open');
+          // Focus first link for accessibility
+          const firstLink = mobileMenu.querySelector('a');
+          if (firstLink) firstLink.focus();
+        } else {
+          mobileMenu.classList.remove('show', 'open');
+          mobileMenu.classList.add('hidden');
+        }
+      };
+      // Close mobile menu when clicking a link
+      mobileMenu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+          closeMobileMenu();
+        }
+      });
+      // Close mobile menu when clicking outside
+      // (do not close if clicking the menu button itself)
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && e.target !== menuBtn) {
+          closeMobileMenu();
+        }
+      });
+      // Close mobile menu on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+          closeMobileMenu();
+        }
+      });
+      // Accessibility: trap focus in mobile menu when open
+      mobileMenu.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+          const focusableEls = Array.from(mobileMenu.querySelectorAll('a, button'));
+          if (focusableEls.length === 0) return;
+          const firstEl = focusableEls[0];
+          const lastEl = focusableEls[focusableEls.length - 1];
+          if (e.shiftKey && document.activeElement === firstEl) {
+            e.preventDefault();
+            lastEl.focus();
+          } else if (!e.shiftKey && document.activeElement === lastEl) {
+            e.preventDefault();
+            firstEl.focus();
+          }
+        }
+      });
+      // Add close button logic for mobile menu
+      const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+      if (closeMobileMenuBtn) {
+        closeMobileMenuBtn.addEventListener('click', function() {
+          closeMobileMenu();
+        });
+      }
+
+      // Contact Form Validation
+      const contactForm = document.getElementById('contact-form');
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = this.querySelector('input[type="text"]').value.trim();
+        const email = this.querySelector('input[type="email"]').value.trim();
+        const message = this.querySelector('textarea').value.trim();
+        if (!name || !email || !message) {
+          alert('Please fill in all fields.');
+          return;
+        }
+        alert('Message sent successfully! We’ll get back to you soon.');
+        this.reset();
+      });
+      // Product rendering
+      const { products, addToCart, updateCartCount, renderCartItems, loadCart } = window.CartModule;
+      const productList = document.getElementById('product-list');
+      products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'p-2 flex flex-col items-center';
+        card.innerHTML = `
+          ${product.image ? `<img src="${product.image}" alt="${product.name}" class="w-48px h-48px mb-2 rounded border-2 border-gray-400 object-cover" />` : `<div class="bg-gray-300 w-48px h-48px mb-2 rounded border-2 border-gray-400 flex items-center justify-center"></div>`}
+          <p class="text-center mb-2 font-medium text-base sm:text-lg">${product.name}</p>
+          <button class="add-to-cart bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 text-sm sm:text-base" data-id="${product.id}">Add to Cart</button>
+        `;
+        productList.appendChild(card);
+      });
+      productList.addEventListener('click', function(e) {
+        if (e.target.classList.contains('add-to-cart')) {
+          const productId = e.target.getAttribute('data-id');
+          addToCart(productId);
+        }
+      });
+      // Initial cart count
+      loadCart();
+      updateCartCount();
+
+      // Checkout
+      const checkoutBtn = document.getElementById('checkout-btn');
+      checkoutBtn.addEventListener('click', () => {
+        loadCart();
+        if (Object.keys(window.CartModule.getCart()).length === 0) {
+          alert('Your cart is empty.');
+          return;
+        }
+        window.location.replace('checkout.html');
+      });
+
+      // Cart Modal Logic
+      const cartBtn = document.getElementById('cart-btn');
+      const cartModal = document.getElementById('cart-modal');
+      const closeCart = document.getElementById('close-cart');
+      const cartItems = document.getElementById('cart-items');
+      const cartCheckoutBtn = document.getElementById('cart-checkout-btn');
+      const cartBtnMobile = document.getElementById('cart-btn-mobile');
+      cartBtn.setAttribute('tabindex', '0');
+      cartBtn.setAttribute('role', 'button');
+      cartBtn.setAttribute('aria-label', 'View cart');
+      cartBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          loadCart();
+          renderCartItems();
+          cartModal.classList.remove('hidden');
+        }
+      });
+      cartBtn.addEventListener('click', () => {
+        loadCart();
+        renderCartItems();
+        cartModal.classList.remove('hidden');
+      });
+      if (cartBtnMobile) {
+        cartBtnMobile.addEventListener('click', () => {
+          window.location.replace('checkout.html');
+        });
+      }
+      // Restore menu open/close logic for mobile menu
+      menuBtn.onclick = function(e) {
+        e.stopPropagation();
+        if (mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.add('show', 'open');
+          // Focus first link for accessibility
+          const firstLink = mobileMenu.querySelector('a');
+          if (firstLink) firstLink.focus();
+        } else {
+          mobileMenu.classList.remove('show', 'open');
+          mobileMenu.classList.add('hidden');
+        }
+      };
+      closeCart.addEventListener('click', () => {
+        cartModal.classList.add('hidden');
+      });
+      cartModal.addEventListener('click', (e) => {
+        if (e.target === cartModal) cartModal.classList.add('hidden');
+      });
+      cartItems.addEventListener('click', function(e) {
+        const id = e.target.getAttribute('data-id');
+        if (e.target.classList.contains('remove-from-cart')) {
+          window.CartModule.removeFromCart(id);
+          renderCartItems();
+        } else if (e.target.classList.contains('increase-qty')) {
+          window.CartModule.increaseQty(id);
+          renderCartItems();
+        } else if (e.target.classList.contains('decrease-qty')) {
+          window.CartModule.decreaseQty(id);
+          renderCartItems();
+        }
+      });
+      cartCheckoutBtn.addEventListener('click', () => {
+        loadCart();
+        if (Object.keys(window.CartModule.getCart()).length === 0) {
+          alert('Your cart is empty.');
+          return;
+        }
+        cartModal.classList.add('hidden');
+        window.location.replace('checkout.html');
+      });
+
+      // Back to Top Button Logic
+      const backToTopBtn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > (document.body.scrollHeight / 2)) {
+          backToTopBtn.classList.remove('hidden');
+          backToTopBtn.classList.add('opacity-100');
+        } else {
+          backToTopBtn.classList.add('hidden');
+          backToTopBtn.classList.remove('opacity-100');
+        }
+      });
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+  </script>
+
+</body>
+</html>
